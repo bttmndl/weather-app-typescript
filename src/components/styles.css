@@ -38,3 +38,15 @@
 .input_button:hover {
     background-color: #339966;
 }
+
+.main_content {
+    height:auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.main_content_inner {
+    width:25%;
+    border: 1px solid black;
+}
