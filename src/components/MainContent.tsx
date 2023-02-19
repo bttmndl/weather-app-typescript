@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import {useNavigate} from 'react-router-dom';
 
 interface Props {
   inputValue : string,
@@ -16,6 +17,8 @@ const MainContent:React.FC <Props>= ({inputValue}) => {
 
   const [weatherCountryData, setWeatherCountryData] = useState<Country[]>();
   const [heart, setHeart] =useState<boolean>(false)
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchData(): Promise<void> {
@@ -40,7 +43,7 @@ const MainContent:React.FC <Props>= ({inputValue}) => {
             <h2>Population: {ele.population}</h2>
             <h2>Lat & Lang: {ele.latlng}</h2>
             <img src={ele.flags.png} alt=""/>
-            <button className="see-weather-button">See Weather</button>
+            <button onClick ={()=>navigate(`/capital/${ele.capital}`)} className="see-weather-button">See Weather</button>
           </div>
         ))
       }
